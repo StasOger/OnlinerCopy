@@ -1,0 +1,26 @@
+<div th:fragment="header" >
+  <style>
+   a {
+    text-decoration: none;
+    color: #000002; /* Цвет обычной ссылки */
+   }
+   a:hover {
+    text-decoration: none;
+    color: #2E8B57; /* Цвет ссылки при наведении на нее курсора мыши */
+   }
+  </style>
+  <div class="d-flex flex-column flex-md-row align-items-center pb-7 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none col-xs-6 col-sm-3">
+      <svg>
+        <img src="https://content.kufar.by/static/frontend/svg/logo-small.svg" alt="" width="32" height="36">
+      </svg>
+    </a>
+      <a href="/" class="fs-3 col-xs-6 col-sm-3">FAKE_kufar</a>
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+      <a class="me-4 py-4" href="createCar">Cars</a>
+      <a class="me-4 py-4" href="PAYMENT">Payment</a>
+      <a class="me-4 py-4" href="SUPPORT">Support</a>
+      <a class="me-4 py-4" href="PROFILE">Profile</a>
+    </nav>
+  </div>
+</div>

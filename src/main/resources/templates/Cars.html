@@ -1,0 +1,29 @@
+<!DOCTYPE Html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th> Car </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${cars.empty}">
+        <td colspan="2"> No Cars Available </td>
+    </tr>
+    <tr th:each="car : ${cars}">
+        <td><span th:text="${car.brand}"> Brand </span></td>
+        <td><span th:text="${car.color}"> Color </span></td>
+        <td><a th:href="@{/deleteCar/{id}(id=${car.id})}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
