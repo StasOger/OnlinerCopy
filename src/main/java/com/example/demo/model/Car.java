@@ -18,8 +18,9 @@ public class Car {
 
     private EngineVolume engineVolume;
 
-    @Lob @Basic(fetch = FetchType.LAZY)
-    @Column(length=100000)
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    @Column(length = 100000)
     private byte[] photo;
 
     public Color getColor() {
@@ -67,6 +68,8 @@ public class Car {
         return "Car{" +
                 "id=" + id +
                 ", brand='" + brand + '\'' +
+                ", color=" + color +
+                ", engineVolume=" + engineVolume +
                 '}';
     }
 }

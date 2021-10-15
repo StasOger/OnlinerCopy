@@ -5,6 +5,8 @@ import com.example.demo.model.characteristicsAuto.Color;
 import com.example.demo.model.characteristicsAuto.EngineVolume;
 import com.example.demo.repository.CarRepository;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,8 @@ import java.util.Optional;
 @Controller
 public class CarController {
 
+    private final Logger logger = LoggerFactory.getLogger(CarController.class);
+
     @Autowired
     private CarRepository carRepository;
     private List<String> brands = new ArrayList<>();
@@ -31,8 +35,6 @@ public class CarController {
         brands.add("GAZ");
         brands.add("Volvo");
     }
-
-
 
     @GetMapping("/createCar")
     public String createCar(Model model) {
@@ -44,7 +46,7 @@ public class CarController {
     }
 
     public void ss() {
-        Optional<Car> carOptional  = carRepository.findById(1);
+        Optional<Car> carOptional = carRepository.findById(1);
         if (carOptional.isPresent()) {
             Car car = carOptional.get();
         } else {
@@ -60,12 +62,21 @@ public class CarController {
         return "Cars";
     }
 
+    /**
+     * Creates {@link Car}.
+     *
+     * @param car  - {@link Car} entity to be created
+     * @param file - car image
+     * @return Cars template
+     * @throws IOException on image exception
+     */
     @PostMapping("/createCar")
     public String createCar(@ModelAttribute Car car, @RequestParam("file") MultipartFile file) throws IOException {
         byte[] bFile = file.getBytes();
         car.setPhoto(bFile);
 
         carRepository.save(car);
+        logger.info("Car {} is created", car);
         return "redirect:/Cars";
     }
 
@@ -73,18 +84,28 @@ public class CarController {
     public void showImage(@PathVariable Integer id, HttpServletResponse response) throws IOException {
         response.setContentType("image/jpeg");
 
-        Car car = carRepository.findById(id).get();
-
-        InputStream is = new ByteArrayInputStream(car.getPhoto());
-        IOUtils.copy(is, response.getOutputStream());
+        Optional<Car> carOptional = carRepository.findById(id);
+        if (carOptional.isPresent()) {
+            InputStream is = new ByteArrayInputStream(carOptional.get().getPhoto());
+            IOUtils.copy(is, response.getOutputStream());
+        } else {
+            logger.error("Car with id:{} was not find", id);
+        }
     }
 
+    /**
+     * Deletes {@link Car} by given id.
+     *
+     * @param id - search criteria
+     * @return Cars template
+     */
     @GetMapping("/deleteCar/{id}")
     public String deleteCar(@PathVariable Integer id) {
-    carRepository.deleteById(id);
+        carRepository.deleteById(id);
+
+        logger.info("Car with id:{} is deleted.", id);
         return "redirect:/Cars";
     }
-
 
 }
 
