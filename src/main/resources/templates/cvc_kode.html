@@ -4,14 +4,35 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css"
+
 </head>
 <body>
+<style>
+    input[type=submit] {
+    background-color: #2E8B57;
+    border: none;
+    border-radius: 7px;
+    padding:4px 21px;
+    background: #4caf50;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+        hover {
+    background: #2E8B57;}
+}
+    input[type=submit]:hover {
+    background: #2E8B57;
+}
+
+
+    </style>
 <header th:insert="blocks/header :: header"></header>
 
 
 <form action="/createCVC" method="post" th:object="${cvc}">
     <center>
-     Код CVC: <input name="block1" maxlength="3" size="3">
+     Код CVC: <input name="block1" required placeholder maxlength="3" size="3">
               <input type="submit" value="Done">
 
     </center>

@@ -14,26 +14,100 @@
 
 </head>
 <body>
+
+<style>
+    .select-css {
+    display: block;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #444;
+    line-height: 1.3;
+    padding: .6em 1.4em .5em .8em; width: 100%;
+    max-width: 20%;
+    box-sizing: border-box;
+    margin: 0;
+    border: 2px solid #4caf50;
+    border-radius: 1px;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+    }
+    .select-css::-ms-expand { display: none; }
+    .select-css:hover { border-color: #2E8B58; }
+    .select-css:focus { border-color: #4caf50;
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222;
+    outline: none;
+    }
+    .select-css option { font-weight:normal; }
+    *[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css {
+    background-position: left .7em top 50%, 0 0;
+    padding: .6em .8em .5em 1.4em;
+    }
+
+   input[type=submit] {
+    background-color: #2E8B57;
+    max-width: 20%;
+    border: none;
+    border-radius: 3px;
+    padding:4px 21px;
+    background: #4caf50;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+        hover {
+    background: #2E8B57;}
+}
+    input[type=submit]:hover {
+    background: #2E8B57;
+}
+    </style>
+
 <header th:insert="blocks/header :: header"></header>
 
 <center>
 
-    <form action="/createCar" method="post" th:object="${car}">
-        <p>Brand</p>
-        <select th:field="*{brand}">
-            <option th:each="brand : ${brands}" th:value="${brand}"
-                    th:utext="${brand}">Wireframe
-            </option>
-        </select>
+    <form enctype="multipart/form-data" action="/createCar" method="post" th:object="${car}">
+        <p>
+            <select class="select-css" th:field="*{brand}"  onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
+                <option value="" selected="selected">Brand</option>
+                <option th:each="brand : ${brands}" th:value="${brand}"
+                        th:utext="${brand}">Wireframe
+                </option>
+            </select>
+        </p>
 
-        <p>Color</p>
-        <select th:field="*{color}">
-            <option th:each="color : ${colors}" th:value="${color}"
-                    th:utext="${color}">Wireframe
-            </option>
-        </select>
+        <p>
+            <select class="select-css" th:field="*{color}" onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
+                <option value="" selected="selected">Color</option>
+                <option th:each="color : ${colors}" th:value="${color}"
+                        th:utext="${color}">Wireframe
+                </option>
+            </select>
+        </p>
+
+        <p>
+            <select required class="select-css" th:field="*{engineVolume}" onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
+                <option value="" selected="selected">Engine Volume</option>
+                <option th:each="engineVolume : ${engineVolumes}" th:value="${engineVolume}"
+                        th:utext="${engineVolume.value}">Wireframe
+                </option>
+            </select>
+        </p>
+        <p>Укажите цвет фона: <input type="color" name="bg" value="#ff0000">
+            <input type="submit" value="Выбрать"></p>
+        <p><input type="file" name="file" id="file"></p>
+            <input type="submit" value="Отправить"></p>
+
         <input type="submit" value="Done">
-
 
     </form>
 

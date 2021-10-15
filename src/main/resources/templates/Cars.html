@@ -1,12 +1,21 @@
-<!DOCTYPE Html>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
 </head>
 <body>
 
+<header th:insert="blocks/header :: header"></header>
 <table>
     <thead>
     <tr>
@@ -20,6 +29,10 @@
     <tr th:each="car : ${cars}">
         <td><span th:text="${car.brand}"> Brand </span></td>
         <td><span th:text="${car.color}"> Color </span></td>
+        <td><span th:text="${car.engineVolume.value}"> EngineVolume </span></td>
+        <img th:src="@{'showImage/' + ${car.id}}">
+
+        </select>
         <td><a th:href="@{/deleteCar/{id}(id=${car.id})}" class="btn btn-danger">Delete</a></td>
     </tr>
     </tbody>
