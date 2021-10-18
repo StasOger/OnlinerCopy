@@ -1,26 +1,61 @@
 <div th:fragment="header" >
-  <style>
+  <style type="text/css">
    a {
     text-decoration: none;
-    color: #000002; /* Цвет обычной ссылки */
+    color: #696969; /* Цвет обычной ссылки */
    }
    a:hover {
     text-decoration: none;
     color: #2E8B57; /* Цвет ссылки при наведении на нее курсора мыши */
    }
+        button[name="run_script"] {
+        border: none;
+        border-radius: 6px;
+        padding: 10px 25px;
+        background: #4caf50;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: white;
+      }
+        button[name="run_script"]:hover {
+        background: #2E8B57;
+      }
+        button[name="run"] {
+        border: 1px solid #4caf50;
+        border-radius: 6px;
+        padding: 8px 21px;
+        background: white;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #4caf50;
+      }
+        button[name="run"]:hover {
+        background: #2E8B57;
+        border: 4px solid #2E8B57;
+        color: white;
+      }
   </style>
-  <div class="d-flex flex-column flex-md-row align-items-center pb-7 mb-4 border-bottom">
-    <a href="/" class="d-flex align-items-center text-dark text-decoration-none col-xs-6 col-sm-3">
+  <div class="d-flex  flex-md-row align-items-center pb-7 mb-4 border-bottom">
+
+    <a href="Cars" class="d-flex align-items-center text-dark text-decoration-none col-xs-6 col-sm-3">
       <svg>
         <img src="https://content.kufar.by/static/frontend/svg/logo-small.svg" alt="" width="32" height="36">
       </svg>
     </a>
-      <a href="/" class="fs-3 col-xs-6 col-sm-3">FAKE_kufar</a>
+
+    <a href="/" class="fs-3 col-xs-6 col-sm-4">FAKE_kufar</a>
     <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-      <a class="me-4 py-4" href="createCar">Car</a>
-      <a class="me-4 py-4" href="PAYMENT">Payment</a>
-      <a class="me-4 py-4" href="SUPPORT">Support</a>
-      <a class="me-4 py-4" href="PROFILE">Profile</a>
+      <h6>
+        <a class="me-4 py-4" href="Cars">Vehicles</a>
+        <a class="me-4 py-4" href="PAYMENT">Payment</a>
+        <a class="me-4 py-4" href="SUPPORT">Support</a>
+        <a href="PROFILE"><button type="submit" name="run">+ Add announcement</button></a>
+        <a href="PROFILE"><button type="submit" name="run_script" border="">Profile</button></a>
+
+      </h6>
     </nav>
   </div>
-</div>
+
+
