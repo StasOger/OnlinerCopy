@@ -34,15 +34,23 @@
                     <span th:text="${car.brand}" class="col-1-5"> Brand </span>
                 </td>
                 <td>
-                    <span th:text="${car.color}" class="col-1-5"> Color </span>
+                    <span th:text="${car.engineVolume.value}" class="col-1-5"> Engine volume </span>
                 </td>
                 <td>
-                    <span th:text="${car.engineVolume.value}" class="col-1-5"> EngineVolume </span>
+                    <span th:text="${car.typeEngine.value}" class="col-1-5"> Type engine </span>
                 </td>
+                <td>
+                    <span th:text="${car.bodyCar.value}" class="col-1-5"> Body car </span>
+                </td>
+                <td>
+                    <span th:text="${car.color}" class="col-1-5"> Color </span>
+                </td>
+
+
+
                 <td>
                     <img width="200" height="220" th:src="@{'showImage/' + ${car.id}}" class="col-1-5">
                 </td>
-                </select>
                 <td>
                     <a th:href="@{/deleteCar/{id}(id=${car.id})}" class="btn btn-danger">Delete</a>
                 </td>

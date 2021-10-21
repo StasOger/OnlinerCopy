@@ -1,8 +1,10 @@
 package com.example.demo.controllers;
 
 import com.example.demo.model.Car;
+import com.example.demo.model.characteristicsAuto.BodyCar;
 import com.example.demo.model.characteristicsAuto.Color;
 import com.example.demo.model.characteristicsAuto.EngineVolume;
+import com.example.demo.model.characteristicsAuto.TypeEngine;
 import com.example.demo.repository.CarRepository;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
@@ -39,8 +41,10 @@ public class CarController {
     @GetMapping("/createCar")
     public String createCar(Model model) {
         model.addAttribute("brands", brands);
-        model.addAttribute("colors", Color.values());
         model.addAttribute("engineVolumes", EngineVolume.values());
+        model.addAttribute("typeEngines", TypeEngine.values());
+        model.addAttribute("colors", Color.values());
+        model.addAttribute("bodyCars", BodyCar.values());
         model.addAttribute("car", new Car());
         return "Car";
     }

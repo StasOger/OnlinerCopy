@@ -30,7 +30,6 @@
     border: 2px solid #4caf50;
     border-radius: 1px;
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
@@ -79,11 +78,39 @@ p {
 <center>
 
     <form enctype="multipart/form-data" action="/createCar" method="post" th:object="${car}">
+
         <p>
             <select class="select-css" th:field="*{brand}"  onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
                 <option value="" selected="selected">Brand</option>
                 <option th:each="brand : ${brands}" th:value="${brand}"
                         th:utext="${brand}">Wireframe
+                </option>
+            </select>
+        </p>
+
+        <p>
+            <select required class="select-css" th:field="*{engineVolume}" onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
+                <option value="" selected="selected">Engine volume</option>
+                <option th:each="engineVolume : ${engineVolumes}" th:value="${engineVolume}"
+                        th:utext="${engineVolume.value}">Wireframe
+                </option>
+            </select>
+        </p>
+
+        <p>
+            <select class="select-css" th:field="*{typeEngine}" onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
+                <option value="" selected="selected">Type engine</option>
+                <option th:each="typeEngine : ${typeEngines}" th:value="${typeEngine}"
+                        th:utext="${typeEngine}">Wireframe
+                </option>
+            </select>
+        </p>
+
+        <p>
+            <select class="select-css" th:field="*{bodyCar}" onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
+                <option value="" selected="selected">Body car</option>
+                <option th:each="bodyCar : ${bodyCars}" th:value="${bodyCar}"
+                        th:utext="${bodyCar}">Wireframe
                 </option>
             </select>
         </p>
@@ -97,15 +124,8 @@ p {
             </select>
         </p>
 
-        <p>
-            <select required class="select-css" th:field="*{engineVolume}" onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
-                <option value="" selected="selected">Engine Volume</option>
-                <option th:each="engineVolume : ${engineVolumes}" th:value="${engineVolume}"
-                        th:utext="${engineVolume.value}">Wireframe
-                </option>
-            </select>
-        </p>
         <p><input type="file" name="file" id="file"></p>
+
         <input type="submit" value="Done">
 
     </form>

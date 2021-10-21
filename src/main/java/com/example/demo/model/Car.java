@@ -1,7 +1,9 @@
 package com.example.demo.model;
 
+import com.example.demo.model.characteristicsAuto.BodyCar;
 import com.example.demo.model.characteristicsAuto.Color;
 import com.example.demo.model.characteristicsAuto.EngineVolume;
+import com.example.demo.model.characteristicsAuto.TypeEngine;
 
 import javax.persistence.*;
 
@@ -17,6 +19,10 @@ public class Car {
     private Color color;
 
     private EngineVolume engineVolume;
+
+    private BodyCar bodyCar;
+
+    private TypeEngine typeEngine;
 
     @Lob
     @Basic(fetch = FetchType.LAZY)
@@ -55,6 +61,14 @@ public class Car {
         this.engineVolume = engineVolume;
     }
 
+    public BodyCar getBodyCar() { return bodyCar; }
+
+    public void setBodyCar(BodyCar bodyCar) { this.bodyCar = bodyCar; }
+
+    public TypeEngine getTypeEngine() {return typeEngine;}
+
+    public void setTypeEngine(TypeEngine typeEngine) {this.typeEngine = typeEngine;}
+
     public byte[] getPhoto() {
         return photo;
     }
@@ -70,6 +84,7 @@ public class Car {
                 ", brand='" + brand + '\'' +
                 ", color=" + color +
                 ", engineVolume=" + engineVolume +
+                ", bodyCar=" + bodyCar +
                 '}';
     }
 }
