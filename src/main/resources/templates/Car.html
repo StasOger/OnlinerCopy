@@ -28,7 +28,7 @@
     box-sizing: border-box;
     margin: 0;
     border: 2px solid #4caf50;
-    border-radius: 1px;
+    border-radius: 6px;
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -51,7 +51,7 @@
     padding: .6em .8em .5em 1.4em;
     }
 
-   input[type=submit] {
+    input[type=submit] {
     background-color: #2E8B57;
     max-width: 20%;
     border: none;
@@ -68,9 +68,32 @@
     input[type=submit]:hover {
     background: #2E8B57;
 }
-p {
+
+        input[type=file] {
+        border: 1px solid #4caf50;
+        border-radius: 6px;
+        max-width: 20%;
+        padding: 8px;
+        background: #303030;
+        cursor: pointer;
+        font-weight: bold;
+        color: #4caf50;
+        }
+
+        input[type=file]:hover {
+        background: #2E8B57;
+        border: 1px solid #2E8B57;
+        color: #696969;
+        }
+
+        p {
     margin-bottom: 5px; /* Отступ снизу */
-   }
+    }
+
+
+
+
+
     </style>
 
 <header th:insert="blocks/header :: header"></header>
@@ -126,6 +149,7 @@ p {
 
         <p><input type="file" name="file" id="file"></p>
 
+
         <input type="submit" value="Done">
 
     </form>
@@ -133,6 +157,9 @@ p {
 </center>
 
 <footer th:insert="blocks/footer :: footer"></footer>
+
+
+
 </body>
 <script src="js/script.js"></script>
 </html>
