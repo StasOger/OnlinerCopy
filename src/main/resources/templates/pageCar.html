@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <style type="text/css">
+      body {
+    margin: 0; /* Убираем отступы */
+   }
+   .tab { margin-left: 100px; }
+
+    </style>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<center>
+
+  <table border="1">
+    <thead>
+    <tr>
+      <th>Cars</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:if="${cars.empty}">
+      <td colspan="2"> No Cars Available </td>
+    </tr>
+
+    <table class="main">
+      <table width="90%" border="2" cellpadding="0" cellspacing="1">
+        <tr th:each="car : ${cars}" align="right" valign="top">
+          <td>
+            <span th:text="${car.brand}" class="col-1-5"> Brand </span>
+            ,
+            <span th:text="${car.engineVolume.value}" class="col-1-5"> Engine volume </span>
+            л., двигатель:
+            <span th:text="${car.typeEngine}" class="col-1-5"> Type engine </span>
+            ,
+            <span th:text="${car.bodyCar}" class="col-1-5"> Body car </span>
+            , цвет:
+            <span th:text="${car.color}" class="col-1-5"> Color </span>
+            .
+
+
+          </td>
+
+          <td>
+            <img width="200" height="220" th:src="@{'showImage/' + ${car.id}}" class="col-1-5">
+          </td>
+          <td>
+            <a th:href="@{/deleteCar/{id}(id=${car.id})}" class="btn btn-danger">Delete</a>
+          </td>
+        </tr>
+      </table>
+      </div>
+      </tbody>
+    </table>
+
+
+
+
+</center>
+
+</body>
+</html>

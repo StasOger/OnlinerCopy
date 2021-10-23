@@ -49,18 +49,9 @@ public class CarController {
         return "Car";
     }
 
-    public void ss() {
-        Optional<Car> carOptional = carRepository.findById(1);
-        if (carOptional.isPresent()) {
-            Car car = carOptional.get();
-        } else {
-            System.out.println();
-
-        }
-    }
-
     @GetMapping("/Cars")
     public String allCars(Model model) {
+        initCar();
         model.addAttribute("cars", carRepository.findAll());
 
         return "Cars";
@@ -109,6 +100,35 @@ public class CarController {
 
         logger.info("Car with id:{} is deleted.", id);
         return "redirect:/Cars";
+    }
+
+    /**
+     * Initializes a car. Just for testing
+     */
+    private void initCar() {
+        Car car = new Car();
+
+        car.setBrand(brands.get(0));
+        car.setEngineVolume(EngineVolume.FIFE_NINE);
+        car.setTypeEngine(TypeEngine.electro);
+        car.setColor(Color.black);
+
+        carRepository.save(car);
+    }
+
+    public String pageCar (@PathVariable Integer id, Model model) {
+        Optional<Car> carOptional = carRepository.findById(id);
+        if (carOptional.isPresent()){
+            model.addAttribute("car", carOptional.get());
+            logger.info("Car with id:{} is found.", id);
+            return "redirect:/pageCar";
+        } else {
+            logger.error("404! Car with id:{} not found.", id);
+            return  "";
+        }
+
+
+
     }
 
 }
