@@ -115,6 +115,10 @@ public class CarController {
         if (carOptional.isPresent()){
             model.addAttribute("car", carOptional.get());
             model.addAttribute("brands", brands);
+            model.addAttribute("engineVolumes", EngineVolume.values());
+            model.addAttribute("typeEngines", TypeEngine.values());
+            model.addAttribute("colors", Color.values());
+            model.addAttribute("bodyCars", BodyCar.values());
             logger.info("Car with id:{} is found.", id);
             return "pageCar";
         } else {
@@ -122,6 +126,7 @@ public class CarController {
             return  "404";
         }
     }
+
 
 }
 

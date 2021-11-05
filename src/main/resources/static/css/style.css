@@ -1,30 +1,55 @@
 
-button[name="run_script"] {
-  border: none;
-  border-radius: 7px;
-  padding: 10px 25px;
-  background: #4caf50;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: white;
-}
+    button[name="run_script"] {
+      border: none;
+      border-radius: 7px;
+      padding: 10px 25px;
+      background: #4caf50;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: white;
+      width: 250px;
+    }
 
-button[name="run_script"]:hover {
-  background: #2E8B57;
-}
+    button[name="run_script"]:hover {
+      background: #2E8B57;
+    }
 
-input[type=submit] {
-  background-color: #2E8B57;
-  border: none;
-  border-radius: 7px;
-  padding: 4px 21px;
-  background: #4caf50;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: white;
-}
+    btn btn-danger {
+    padding: 10px 10px;
+    }
+
+    btn btn-warning {
+    padding: 10px 10px;
+    }
+
+
+
+  input[type=file] {
+      border: none;
+      border-radius: 6px;
+      padding: 10px 25px;
+      background: #4caf50;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: white;
+      width: 250px;
+      height: 40px;
+    }
+    input[type=file]:hover {
+      background: #2E8B57;
+    }
+
+
+.edit {
+      	width: 250px;
+      	height: 40px;
+        border-radius: 6px;
+      	top: -2px;
+      	padding: 0 0 0 20px;
+      	font-weight: 700;
+      }
 
     .select-css{
     display: block;
@@ -61,23 +86,71 @@ input[type=submit] {
     padding: .6em .8em .5em 1.4em;
     }
 
-   input[type=submit] {
-    background-color: #2E8B57;
-    max-width: 20%;
+
+p {
+    margin-bottom: 5px; /* Отступ снизу */
+   }
+
+.inputPayment {
+      	width: 80px;
+      	height: 40px;
+        border-radius: 6px;
+      	top: -2px;
+      	padding: 0 0 0 20px;
+      	font-weight: 700;
+      }
+
+
+    .done {
     border: none;
-    border-radius: 3px;
-    padding:4px 21px;
+    border-radius: 6px;
     background: #4caf50;
     cursor: pointer;
     text-transform: uppercase;
     font-weight: bold;
     color: white;
-        hover {
-    background: #2E8B57;}
-}
-    input[type=submit]:hover {
+    width: 80px;
+    height: 40px;
+  }
+    .done:hover {
     background: #2E8B57;
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+.calculator {
+ padding: 10px;
+ border-radius: 1em;
+ height: 380px;
+ width: 400px;
+ margin: auto;
+ background-color: #191b28;
+ box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
-p {
-    margin-bottom: 5px; /* Отступ снизу */
-   }
+.display-box {
+ font-family: 'Orbitron', sans-serif;
+ background-color: #dcdbe1;
+ border: solid black 0.5px;
+ color: black;
+ border-radius: 5px;
+ width: 100%;
+ height: 65%;
+}
+.button {
+ font-family: 'Orbitron', sans-serif;
+ background-color: #64278f;
+ color: white;
+ border: solid black 0.5px;
+ width: 100%;
+ border-radius: 5px;
+ height: 70%;
+ outline: none;
+}
+.button:active {
+ background: #e5e5e5;
+ -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+ -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+ box-shadow: inset 0px 0px 5px #c1c1c1;
+}

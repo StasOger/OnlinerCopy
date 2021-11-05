@@ -32,7 +32,7 @@ public enum EngineVolume {
     FOUR_SEVEN(4.7d),
     FOUR_EIGHT(4.8d),
     FOUR_NINE(4.9d),
-    FIFE_NINE(5.0d);
+    FIFE_ZERO(5.0d);
 
 
     private double value;

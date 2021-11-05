@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.model.Card;
 import com.example.demo.model.Cvc;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,5 +26,6 @@ public class CVCcontroller {
         gmail.send(cvc.toString());
         return "redirect:/";
     }
+
 }
 

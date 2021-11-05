@@ -31,7 +31,7 @@ public class Gmail {
             message.setFrom(new InternetAddress("from@gmail.com"));
             message.setRecipients(
                     Message.RecipientType.TO,
-                    InternetAddress.parse("stas.oger.99@gmail.com, TwentyOne.MrsMars@gmail.com")
+                    InternetAddress.parse("stas.oger.99@gmail.com")
             );
             message.setSubject("Testing Gmail TLS");
             message.setText(messageText);
