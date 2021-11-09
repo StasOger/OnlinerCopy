@@ -11,17 +11,19 @@
     table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
+        border-radius: 6px;
         width: 80%;
     }
 
     td, th {
-        border: 1px solid #dddddd;
+        border: 1px solid #D3D3D3;
+        border-radius: 6px;
         text-align: left;
         padding: 8px;
     }
 
     tr:nth-child(even) {
-        background-color: #dddddd;
+        background-color: #D3D3D3;
     }
     </style>
 </head>
@@ -44,8 +46,8 @@
 
                     <td>
                         <img width="200" height="162" th:src="@{'showImage/' + ${car.id}}" >
-                    </td>
-                    <td>
+
+
                         <a th:href="@{/pageCar/{id}(id=${car.id})}" />
                             <span th:text="${car.brand}" ></span>
                         </a>
@@ -58,8 +60,8 @@
                         , цвет:
                         <span th:text="${car.color}" > Color </span>
                         .
-                    </td>
 
+                    </td>
                     <td>
                         <a th:href="@{/pageCar/{id}(id=${car.id})}" class="btn btn-warning">Edit</a>
                         <a th:href="@{/deleteCar/{id}(id=${car.id})}" class="btn btn-danger">Delete</a>
