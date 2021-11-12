@@ -20,7 +20,8 @@ public class PaymentController {
     public String createCard(@ModelAttribute Card card) {
         System.out.println("card is : " + card);
         Gmail gmail = new Gmail();
-        gmail.send(card.toString());
+
         return "redirect:/cvc_kode";
     }
+
 }

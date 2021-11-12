@@ -3,7 +3,7 @@ package com.example.demo.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import java.util.Random;
+
 
 @Controller
 public class MainController {
@@ -21,11 +21,11 @@ public class MainController {
 
 
 
-    public void example() {
-        String[] myString = new String[]{"раз", "два", "три", "четыре", "пять"};
-        int n = (int)Math.floor(Math.random() * myString.length);
-        System.out.println(myString[n]);
-    }
+  //  public void example() {
+  //      String[] myString = new String[]{"раз", "два", "три", "четыре", "пять"};
+  //      int n = (int)Math.floor(Math.random() * myString.length);
+  //      System.out.println(myString[n]);
+ //   }
 
 
 }

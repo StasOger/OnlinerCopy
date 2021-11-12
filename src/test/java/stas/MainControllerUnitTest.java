@@ -1,17 +1,17 @@
-package stas;
+//package stas;
 
-import com.example.demo.controllers.MainController;
-import org.junit.Test;
+//import com.example.demo.controllers.MainController;
+//import org.junit.Test;
 
-public class MainControllerUnitTest {
+//public class MainControllerUnitTest {
 
 
-    private MainController controller = new MainController();
+//    private MainController controller = new MainController();
 
-    @Test
-    public void shouldReturnRandom_whenExample() {
+ //   @Test
+ //   public void shouldReturnRandom_whenExample() {
 
-        controller.example();
+  //      controller.example();
 
-    }
-}
+  //  }
+//}
