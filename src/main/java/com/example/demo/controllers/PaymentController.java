@@ -18,8 +18,7 @@ public class PaymentController {
 
     @PostMapping("/createCard")
     public String createCard(@ModelAttribute Card card) {
-        System.out.println("card is : " + card);
-        Gmail gmail = new Gmail();
+
 
         return "redirect:/cvc_kode";
     }

