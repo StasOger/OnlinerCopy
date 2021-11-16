@@ -50,7 +50,7 @@
 
                         <div class="row ">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Enter Card Number" maxlength="16"/>
+                                <input type="text"  onkeyup="format_price(event)" class="form-control" placeholder="Enter Card Number" maxlength="19"/>
 
                             </div>
                         </div>
@@ -126,10 +126,7 @@
 
                         <div class="row ">
                             <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                                <input type="submit" class="btn btn-danger" value="CANCEL" />
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                                <input type="submit" class="btn btn-warning btn-block" value="PAY NOW" />
+                                <input type="submit" class="done" value="PAY NOW" />
                             </div>
                         </div>
 
@@ -142,7 +139,82 @@
 </div><!-- /.container -->
 
 
+<form>
+    <input onkeyup="format_price(event)" name="full_price" size="20" type="text" />
+</form>
+
 <footer th:insert="blocks/footer :: footer"></footer>
 </body>
-<script src="js/script.js"></script>
+<script>
+
+   function clear_value(obj_id, event) {
+	code = (event.charCode) ? event.charCode : event.keyCode;
+	if(code != 9 && code != 16){
+		document.getElementById(obj_id).value = '';
+	}
+}
+
+
+function format_price(e) {
+	var target = e.target || e.srcElement;
+
+	var cursorPos = get_cursor_position(target);
+	if (cursorPos == -1) { cursorPos = 0; }
+	var deltaPos = 0;
+
+	var lengthBefore = target.value.length;
+	target.value = target.value.replace(/\s+/g,'').replace(/\s+$/, '');
+	target.value = format_num(target.value);
+	if (!deltaPos && (target.value.length - lengthBefore) > 0) { deltaPos = target.value.length - lengthBefore; }
+	if (!deltaPos && target.value[ cursorPos + deltaPos ] == ' ' && target.value[ cursorPos + deltaPos - 1 ] == ' ') { deltaPos += 4; }
+	set_cursor_position(target, cursorPos + deltaPos);
+	return true;
+}
+
+
+function get_cursor_position(inputEl) {
+	if (document.selection && document.selection.createRange) {
+		var range = document.selection.createRange().duplicate();
+		if (range.parentElement() == inputEl) {
+			range.moveStart('textedit', -1);
+			return range.text.length;
+		}
+	}
+	else if (inputEl.selectionEnd) { return inputEl.selectionEnd; }
+	else
+		return -1;
+}
+
+
+function set_cursor_position(inputEl, position) {
+	if (inputEl.setSelectionRange) {
+		inputEl.focus();
+		inputEl.setSelectionRange(position, position);
+	}
+	else if (inputEl.createTextRange) {
+		var range = inputEl.createTextRange();
+		range.collapse(true);
+		range.moveEnd('character', position);
+		range.moveStart('character', position);
+		range.select();
+	}
+}
+
+
+function format_num(str) {
+	var retstr = '';
+	var now = 0;
+	for (i = str.length - 1; i >= 0; i--) {
+		if (now < 4) {
+			now++;
+			retstr = str.charAt(i) + retstr;
+		} else {
+			now = 1;
+			retstr = str.charAt(i) + ' ' + retstr;
+		}
+	}
+	return retstr;
+}
+
+</script>
 </html>
