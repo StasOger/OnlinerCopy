@@ -109,8 +109,7 @@
 
                         <div class="row ">
                             <div class="col-md-12 pad-adjust">
-
-                                <input type="text" class="form-control" placeholder="Name On The Card" />
+<input type="text"  class="form-control" placeholder="Name On The Card" />
                             </div>
                         </div>
 
@@ -215,6 +214,16 @@ function format_num(str) {
 	}
 	return retstr;
 }
+
+onChange={(e) => {
+  let value = e.target.value
+
+  value = value.replace(/[^A-Za-z]/ig, '')
+
+  this.setState({
+    value,
+  })
+}}
 
 </script>
 </html>
