@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.model.Car;
+import com.example.demo.model.characteristicsAuto.ModelAuto;
 import com.example.demo.model.characteristicsAuto.BodyCar;
 import com.example.demo.model.characteristicsAuto.Color;
 import com.example.demo.model.characteristicsAuto.EngineVolume;
@@ -41,6 +42,7 @@ public class CarController {
     @GetMapping("/createCar")
     public String createCar(Model model) {
         model.addAttribute("brands", brands);
+        model.addAttribute("modelAutos", ModelAuto.values());
         model.addAttribute("engineVolumes", EngineVolume.values());
         model.addAttribute("typeEngines", TypeEngine.values());
         model.addAttribute("colors", Color.values());
@@ -115,6 +117,7 @@ public class CarController {
         if (carOptional.isPresent()){
             model.addAttribute("car", carOptional.get());
             model.addAttribute("brands", brands);
+            model.addAttribute("modelAutos", ModelAuto.values());
             model.addAttribute("engineVolumes", EngineVolume.values());
             model.addAttribute("typeEngines", TypeEngine.values());
             model.addAttribute("colors", Color.values());
