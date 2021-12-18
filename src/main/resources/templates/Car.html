@@ -112,10 +112,9 @@
         </p>
 
         <p>
-            <select id="select-2" class="select-css" th:field="*{modelAuto}"  onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
+            <select id="select-2" class="select-css"  onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
                 <option value="" selected="selected">Model</option>
-                <option th:each="modelAuto : ${modelAutos}" th:value="${modelAuto}"
-                        th:utext="${modelAuto}">Wireframe
+                <option th:each="entry : ${modelAutos.entrySet()}"  th:value="${entry.value}" th:text="${entry.key}">
                 </option>
             </select>
         </p>
@@ -169,5 +168,7 @@
 
 
 </body>
-<script src="js/script.js"></script>
+<script th:src="@{/js/jquery3.3.1.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+
 </html>
