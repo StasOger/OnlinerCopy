@@ -20,9 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 public class CarController {
@@ -41,8 +39,17 @@ public class CarController {
 
     @GetMapping("/createCar")
     public String createCar(Model model) {
+        Map<String, String> models = new HashMap<>();
+        models.put(ModelAuto.THIRD_SERIES.getId(), brands.get(0));
+        models.put(ModelAuto.FIVE_SERIES.getId(), brands.get(0));
+        models.put(ModelAuto.SEVEN_SERIES.getId(), brands.get(0));
+        models.put(ModelAuto.G2101.getId(), brands.get(1));
+        models.put(ModelAuto.S60.getId(), brands.get(2));
+        models.put(ModelAuto.S70.getId(), brands.get(2));
+
+
         model.addAttribute("brands", brands);
-        model.addAttribute("modelAutos", ModelAuto.values());
+        model.addAttribute("modelAutos", models);
         model.addAttribute("engineVolumes", EngineVolume.values());
         model.addAttribute("typeEngines", TypeEngine.values());
         model.addAttribute("colors", Color.values());
