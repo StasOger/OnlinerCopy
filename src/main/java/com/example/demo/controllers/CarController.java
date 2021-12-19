@@ -43,9 +43,11 @@ public class CarController {
         models.put(ModelAuto.THIRD_SERIES.getId(), brands.get(0));
         models.put(ModelAuto.FIVE_SERIES.getId(), brands.get(0));
         models.put(ModelAuto.SEVEN_SERIES.getId(), brands.get(0));
-        models.put(ModelAuto.G2101.getId(), brands.get(1));
+        models.put(ModelAuto.G21.getId(), brands.get(1));
+        models.put(ModelAuto.G24.getId(), brands.get(1));
         models.put(ModelAuto.S60.getId(), brands.get(2));
         models.put(ModelAuto.S70.getId(), brands.get(2));
+
 
 
         model.addAttribute("brands", brands);
