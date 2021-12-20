@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import com.example.demo.model.characteristicsAuto.ModelAuto;
 import com.example.demo.model.characteristicsAuto.BodyCar;
 import com.example.demo.model.characteristicsAuto.Color;
 import com.example.demo.model.characteristicsAuto.EngineVolume;
@@ -18,6 +17,8 @@ public class Car {
     private String brand;
 
     private String modelAuto;
+
+    private String generationCar;
 
     private Color color;
 
@@ -62,6 +63,10 @@ public class Car {
         this.modelAuto = modelAuto;
     }
 
+    public String getGenerationCar() { return generationCar; }
+
+    public void setGenerationCar (String generationCar) {this.generationCar = generationCar;}
+
     public EngineVolume getEngineVolume() {
         return engineVolume;
     }
@@ -92,6 +97,7 @@ public class Car {
                 "id=" + id +
                 ", brand='" + brand + '\'' +
                 ", modelAuto='" + modelAuto  +
+                ", generationCar='" + generationCar  +
                 ", color=" + color +
                 ", engineVolume=" + engineVolume +
                 ", bodyCar=" + bodyCar +

@@ -1,11 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.model.Car;
-import com.example.demo.model.characteristicsAuto.ModelAuto;
-import com.example.demo.model.characteristicsAuto.BodyCar;
-import com.example.demo.model.characteristicsAuto.Color;
-import com.example.demo.model.characteristicsAuto.EngineVolume;
-import com.example.demo.model.characteristicsAuto.TypeEngine;
+import com.example.demo.model.characteristicsAuto.*;
 import com.example.demo.repository.CarRepository;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
@@ -40,18 +36,38 @@ public class CarController {
     @GetMapping("/createCar")
     public String createCar(Model model) {
         Map<String, String> models = new HashMap<>();
+
         models.put(ModelAuto.THIRD_SERIES.getId(), brands.get(0));
         models.put(ModelAuto.FIVE_SERIES.getId(), brands.get(0));
+        models.put(ModelAuto.SIX_SERIES.getId(), brands.get(0));
         models.put(ModelAuto.SEVEN_SERIES.getId(), brands.get(0));
+        models.put(ModelAuto.X_THIRD.getId(), brands.get(0));
+        models.put(ModelAuto.X_FIVE.getId(), brands.get(0));
+        models.put(ModelAuto.X_SIX.getId(), brands.get(0));
+        models.put(ModelAuto.X_SEVEN.getId(), brands.get(0));
+
+        models.put(ModelAuto.G12.getId(), brands.get(1));
+        models.put(ModelAuto.G13.getId(), brands.get(1));
+        models.put(ModelAuto.G14.getId(), brands.get(1));
+        models.put(ModelAuto.M20.getId(), brands.get(1));
         models.put(ModelAuto.G21.getId(), brands.get(1));
         models.put(ModelAuto.G24.getId(), brands.get(1));
+
         models.put(ModelAuto.S60.getId(), brands.get(2));
         models.put(ModelAuto.S70.getId(), brands.get(2));
+        models.put(ModelAuto.S80.getId(), brands.get(2));
+        models.put(ModelAuto.XC90.getId(), brands.get(2));
+
+
+
+
+
 
 
 
         model.addAttribute("brands", brands);
         model.addAttribute("modelAutos", models);
+        model.addAttribute("generationCars", generationCars);
         model.addAttribute("engineVolumes", EngineVolume.values());
         model.addAttribute("typeEngines", TypeEngine.values());
         model.addAttribute("colors", Color.values());

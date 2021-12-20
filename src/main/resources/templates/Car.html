@@ -103,7 +103,7 @@
     <form enctype="multipart/form-data" action="/createCar" method="post" th:object="${car}">
 
         <p>
-            <select id="select-1" class="select-css" th:field="*{brand}"  onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
+            <select id="select-1" class="select-css" th:field="*{brand}">
                 <option value="" selected="selected">Brand</option>
                 <option th:each="brand : ${brands}" th:value="${brand}"
                         th:utext="${brand}">Wireframe
@@ -120,7 +120,15 @@
         </p>
 
         <p>
-            <select required class="select-css" th:field="*{engineVolume}" onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
+            <select id="select-3" class="select-css"  >
+                <option value="" selected="selected">Generation</option>
+                <option th:each="entry : ${modelAutos.entrySet()}"  th:value="${entry.value}" th:text="${entry.key}">
+                </option>
+            </select>
+        </p>
+
+        <p>
+            <select required class="select-css" th:field="*{engineVolume}">
                 <option value="" selected="selected">Engine volume</option>
                 <option th:each="engineVolume : ${engineVolumes}" th:value="${engineVolume}"
                         th:utext="${engineVolume.value}">Wireframe
@@ -129,7 +137,7 @@
         </p>
 
         <p>
-            <select class="select-css" th:field="*{typeEngine}" onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
+            <select class="select-css" th:field="*{typeEngine}">
                 <option value="" selected="selected">Type engine</option>
                 <option th:each="typeEngine : ${typeEngines}" th:value="${typeEngine}"
                         th:utext="${typeEngine}">Wireframe
@@ -138,7 +146,7 @@
         </p>
 
         <p>
-            <select class="select-css" th:field="*{bodyCar}" onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
+            <select class="select-css" th:field="*{bodyCar}">
                 <option value="" selected="selected">Body car</option>
                 <option th:each="bodyCar : ${bodyCars}" th:value="${bodyCar}"
                         th:utext="${bodyCar}">Wireframe
@@ -147,7 +155,7 @@
         </p>
 
         <p>
-            <select class="select-css" th:field="*{color}" onchange="requestdata(this.value, '/public/parameters.php?event=Model_List_Search&amp;category_parent=', 'model_id', 'presearch_form'); Count_Search_Number(this.form);" autocomplete="off">
+            <select class="select-css" th:field="*{color}">
                 <option value="" selected="selected">Color</option>
                 <option th:each="color : ${colors}" th:value="${color}"
                         th:utext="${color}">Wireframe
