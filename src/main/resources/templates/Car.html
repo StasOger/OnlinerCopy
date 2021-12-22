@@ -122,7 +122,7 @@
         <p>
             <select id="select-3" class="select-css"  >
                 <option value="" selected="selected">Generation</option>
-                <option th:each="entry : ${modelAutos.entrySet()}"  th:value="${entry.value}" th:text="${entry.key}">
+                <option th:each="entry : ${generationCars.entrySet()}"  th:value="${entry.value}" th:text="${entry.key}">
                 </option>
             </select>
         </p>

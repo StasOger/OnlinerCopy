@@ -58,10 +58,8 @@ public class CarController {
         models.put(ModelAuto.S80.getId(), brands.get(2));
         models.put(ModelAuto.XC90.getId(), brands.get(2));
 
-
-
-
-
+        models.put(GenerationCar.E_THIRD.getId(), ModelAuto.);
+        models.put(GenerationCar.E_THIRDYSIX.getId(), ModelAuto.THIRD_SERIES);
 
 
 
@@ -143,6 +141,7 @@ public class CarController {
             model.addAttribute("car", carOptional.get());
             model.addAttribute("brands", brands);
             model.addAttribute("modelAutos", ModelAuto.values());
+            model.addAttribute("generationCars", GenerationCar.values());
             model.addAttribute("engineVolumes", EngineVolume.values());
             model.addAttribute("typeEngines", TypeEngine.values());
             model.addAttribute("colors", Color.values());
