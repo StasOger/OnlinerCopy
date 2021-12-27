@@ -37,6 +37,7 @@ public class CarController {
     public String createCar(Model model) {
         Map<String, String> models = new HashMap<>();
 
+
         models.put(ModelAuto.THIRD_SERIES.getId(), brands.get(0));
         models.put(ModelAuto.FIVE_SERIES.getId(), brands.get(0));
         models.put(ModelAuto.SIX_SERIES.getId(), brands.get(0));
@@ -58,10 +59,9 @@ public class CarController {
         models.put(ModelAuto.S80.getId(), brands.get(2));
         models.put(ModelAuto.XC90.getId(), brands.get(2));
 
-        models.put(GenerationCar.E_THIRD.getId(), ModelAuto.);
-        models.put(GenerationCar.E_THIRDYSIX.getId(), ModelAuto.THIRD_SERIES);
-
-
+        Map<String, String> generationCars = new HashMap<>();
+        generationCars.put(GenerationCar.E_THIRD.getId(), ModelAuto.THIRD_SERIES.getId());
+        generationCars.put(GenerationCar.E_THIRDYSIX.getId(), ModelAuto.THIRD_SERIES.getId());
 
         model.addAttribute("brands", brands);
         model.addAttribute("modelAutos", models);
