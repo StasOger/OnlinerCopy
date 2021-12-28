@@ -3,8 +3,8 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 
 
@@ -56,7 +56,7 @@
     max-width: 20%;
     border: none;
     border-radius: 3px;
-    padding:4px 21px;
+    padding:4px;
     background: #4caf50;
     cursor: pointer;
     text-transform: uppercase;
@@ -69,26 +69,19 @@
     background: #2E8B57;
 }
 
-        input[type=file] {
-        border: 1px solid #4caf50;
-        border-radius: 6px;
-        max-width: 20%;
-        padding: 8px;
-        background: #303030;
-        cursor: pointer;
-        font-weight: bold;
-        color: #4caf50;
-        }
 
-        input[type=file]:hover {
-        background: #2E8B57;
-        border: 1px solid #2E8B57;
-        color: #696969;
-        }
 
         p {
     margin-bottom: 5px; /* Отступ снизу */
     }
+
+
+    .example-2 .btn-tertiary{;padding:0;line-height:40px;width:20%;margin:auto;border-radius: 3px;display:block;border:2px solid #4caf50}
+.example-2 .btn-tertiary:hover,.example-2 .btn-tertiary:focus{color:#888;border-color:#2E8B57}
+.example-2 .input-file{width:.1px;height:.1px;opacity:0;overflow:hidden;position:absolute;z-index:-1}
+.example-2 .input-file + .js-labelFile{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 10px;cursor:pointer}
+.example-2 .input-file + .js-labelFile .icon:before{content:"\f093"}
+.example-2 .input-file + .js-labelFile.has-file .icon:before{content:"\f00c";color:#5AAC7B}
 
 
 
@@ -163,7 +156,19 @@
             </select>
         </p>
 
-        <p><input type="file" name="file" id="file" value="file" multiple accept="image/*,image/jpeg"></p>
+
+
+        <p>
+            <div class="example-2">
+                <div class="form-group">
+                    <input type="file" name="file" id="file" class="input-file">
+                    <label for="file" class="btn btn-tertiary js-labelFile">
+                        <i class="icon fa fa-check"></i>
+                        <span class="js-fileName">Загрузить файл</span>
+                    </label>
+                </div>
+            </div>
+        </p>
 
         <input class="done" type="submit" value="Done">
 
