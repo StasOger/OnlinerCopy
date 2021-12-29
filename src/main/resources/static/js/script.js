@@ -17,14 +17,16 @@ $(document).on("change", "#select-1", function() {
 $(document).on("change", "#select-2", function() {
    var selectedModel = $(this).val();
    console.log("selected model: ", selectedModel);
-
+   if (selectedModel != "Model") {
+   console.log("selected model: ", selectedModel);
    $("#select-3").find("option").each(function() {
-      if ($(this).attr('value') == selectedModel) {
-         $(this).show();
-      } else {
-         $(this).hide();
-      }
-   });
+         if ($(this).attr('value') == selectedModel) {
+            $(this).show();
+         } else {
+            $(this).hide();
+         }
+      });
+   }
 });
 
 
