@@ -32,6 +32,8 @@ public class Car {
     @Column(length = 100000)
     private byte[] photo;
 
+
+
     public Color getColor() {
         return color;
     }
