@@ -11,4 +11,8 @@ public class SupportController {
     public String SUPPORT(Model model) {
         return "SUPPORT";
     }
+
+    public String BUTTON(Model model) {
+        return "BUTTON";
+    }
 }

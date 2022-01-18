@@ -4,17 +4,182 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
+    <link href="../css/style.css" th:href="@{css/style.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://bootstraptema.ru/plugins/2015/bootstrap3/bootstrap.min.css" />
 
 </head>
+<style>
+    button.default {
+      background: white;
+      width: 80px;
+      height: 80px;
+      font-size: 40pt;
+      transition: background 9999999s;
+    }
 
+    button.default:active {
+      background: red;
+      transition: background 3s;
+    }
+    .red{
+      background-color: red;
+    }
+    .green{
+      background-color: green;
+    }
+</style>
 <body>
 <header th:insert="blocks/header :: header"></header>
 
 
 
+<table>
+    <tr>
+        <td><button class="default"> 1</button></td>
+        <td><button class="default"> 2</button></td>
+        <td><button class="default"> 3</button></td>
+        <td><button class="default"> 4</button></td>
+        <td><button class="default"> 5</button></td>
+        <td><button class="default"> 6</button></td>
+        <td><button class="default"> 7</button></td>
+        <td><button class="default"> 8</button></td>
+        <td><button class="default"> 9</button></td>
+        <td><button class="default">10</button></td>
+    </tr>
+    <tr>
+        <td><button class="default">11</button></td>
+        <td><button class="default">12</button></td>
+        <td><button class="default">13</button></td>
+        <td><button class="default">14</button></td>
+        <td><button class="default">15</button></td>
+        <td><button class="default">16</button></td>
+        <td><button class="default">17</button></td>
+        <td><button class="default">18</button></td>
+        <td><button class="default">19</button></td>
+        <td><button class="default">20</button></td>
+    </tr>
+    <tr>
+        <td><button class="default">21</button></td>
+        <td><button class="default">22</button></td>
+        <td><button class="default">23</button></td>
+        <td><button class="default">24</button></td>
+        <td><button class="default">25</button></td>
+        <td><button class="default">26</button></td>
+        <td><button class="default">27</button></td>
+        <td><button class="default">28</button></td>
+        <td><button class="default">29</button></td>
+        <td><button class="default">30</button></td>
+    </tr>
+    <tr>
+        <td><button class="default">31</button></td>
+        <td><button class="default">32</button></td>
+        <td><button class="default">33</button></td>
+        <td><button class="default">34</button></td>
+        <td><button class="default">35</button></td>
+        <td><button class="default">36</button></td>
+        <td><button class="default">37</button></td>
+        <td><button class="default">38</button></td>
+        <td><button class="default">39</button></td>
+        <td><button class="default">40</button></td>
+    </tr>
+    <tr>
+        <td><button class="default">41</button></td>
+        <td><button class="default">42</button></td>
+        <td><button class="default">43</button></td>
+        <td><button class="default">44</button></td>
+        <td><button class="default">45</button></td>
+        <td><button class="default">46</button></td>
+        <td><button class="default">47</button></td>
+        <td><button class="default">48</button></td>
+        <td><button class="default">49</button></td>
+        <td><button class="default">50</button></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td><button> 1</button></td>
+        <td><button> 2</button></td>
+        <td><button> 3</button></td>
+        <td><button> 4</button></td>
+        <td><button> 5</button></td>
+        <td><button> 6</button></td>
+        <td><button> 7</button></td>
+        <td><button> 8</button></td>
+        <td><button> 9</button></td>
+        <td><button>10</button></td>
+    </tr>
+    <tr>
+        <td><button>11</button></td>
+        <td><button>12</button></td>
+        <td><button>13</button></td>
+        <td><button>14</button></td>
+        <td><button>15</button></td>
+        <td><button>16</button></td>
+        <td><button>17</button></td>
+        <td><button>18</button></td>
+        <td><button>19</button></td>
+        <td><button>20</button></td>
+    </tr>
+    <tr>
+        <td><button>21</button></td>
+        <td><button>22</button></td>
+        <td><button>23</button></td>
+        <td><button>24</button></td>
+        <td><button>25</button></td>
+        <td><button>26</button></td>
+        <td><button>27</button></td>
+        <td><button>28</button></td>
+        <td><button>29</button></td>
+        <td><button>30</button></td>
+    </tr>
+    <tr>
+        <td><button>31</button></td>
+        <td><button>32</button></td>
+        <td><button>33</button></td>
+        <td><button>34</button></td>
+        <td><button>35</button></td>
+        <td><button>36</button></td>
+        <td><button>37</button></td>
+        <td><button>38</button></td>
+        <td><button>39</button></td>
+        <td><button>40</button></td>
+    </tr>
+    <tr>
+        <td><button>41</button></td>
+        <td><button>42</button></td>
+        <td><button>43</button></td>
+        <td><button>44</button></td>
+        <td><button>45</button></td>
+        <td><button>46</button></td>
+        <td><button>47</button></td>
+        <td><button>48</button></td>
+        <td><button>49</button></td>
+        <td><button>50</button></td>
+    </tr>
+</table>
+
+
+
+
 
 <footer th:insert="blocks/footer :: footer"></footer>
+<script>
+    //Support (button)
+        const table = document.querySelector('table');
 
+        table.addEventListener('click', e => {
+            if (!e.target.classList.contains('default')) return;
+          const button = [...document.querySelectorAll('button:not(.default)')]
+            .find(el => el.textContent.trim() === e.target.textContent.trim());
+          if (button.classList.contains('red')){
+            button.classList.remove('red');
+            button.classList.add('green');
+          }
+          else{
+            button.classList.remove('green');
+            button.classList.add('red');
+          }
+        });
+</script>
 </body>
 </html>

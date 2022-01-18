@@ -155,3 +155,34 @@ p {
  box-shadow: inset 0px 0px 5px #c1c1c1;
 }
 
+
+
+
+
+
+button.default {
+      border: none;
+            border-radius: 7px;
+            padding: 10px 25px;
+            background: #4caf50;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: white;
+            width: 250px;
+    }
+
+    button.default:active {
+      background: red;
+      transition: background 0s;
+    }
+    .red{
+      background-color: red;
+    }
+    .green{
+      background-color: green;
+    }
+
+
+
+
