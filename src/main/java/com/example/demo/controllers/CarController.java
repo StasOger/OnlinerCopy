@@ -31,6 +31,7 @@ public class CarController {
         brands.add("BMW");
         brands.add("GAZ");
         brands.add("Volvo");
+        brands.add("Lexus");
     }
 
     @GetMapping("/createCar")
@@ -58,6 +59,11 @@ public class CarController {
         models.put(ModelAuto.S70.getId(), brands.get(2));
         models.put(ModelAuto.S80.getId(), brands.get(2));
         models.put(ModelAuto.XC90.getId(), brands.get(2));
+
+        models.put(ModelAuto.IS.getId(), brands.get(3));
+        models.put(ModelAuto.LX.getId(), brands.get(3));
+        models.put(ModelAuto.LS.getId(), brands.get(3));
+        models.put(ModelAuto.EX.getId(), brands.get(3));
 
         Map<String, String> generationCars = new HashMap<>();
         generationCars.put(GenerationCar.E_THIRD.getId(), ModelAuto.THIRD_SERIES.getId());
