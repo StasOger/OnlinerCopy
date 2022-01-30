@@ -7,7 +7,10 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <style type="text/css">
 
-   .tab { margin-left: 100px; }
+    .tab {
+        margin-left: 100px;
+    }
+
     table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -15,7 +18,7 @@
         width: 80%;
     }
 
-    td, th {
+    td, th  [name="tdth_cars"]{
         border: 1px solid #D3D3D3;
         border-radius: 6px;
         text-align: left;
@@ -25,52 +28,55 @@
     tr:nth-child(even) {
         background-color: #D3D3D3;
     }
+
+    body {
+        background: #181818;
+    }
+
     </style>
 </head>
+
 <body>
-<header th:insert="blocks/header :: header"></header>
-<center>
+    <header th:insert="blocks/header :: header"></header>
 
-    <table width="80%">
+        <main>
 
+            <center>
 
+                <table width="80%">
+                    <tr th:if="${cars.empty}">
+                        <p> No Cars Available</p>
+                    </tr>
+                </table>
 
-        <tr th:if="${cars.empty}">
-            <p> No Cars Available</p>
-        </tr>
+                <table>
+                    <tr th:each="car : ${cars}">
+                        <td name="tdth_cars">
+                            <img width="200" height="162" th:src="@{'showImage/' + ${car.id}}">
+                            <a th:href="@{/pageCar/{id}(id=${car.id})}"/>
+                                <span th:text="${car.brand}"></span>
+                            </a>
+                            ,
+                            <span th:text="${car.engineVolume.value}"> Engine volume </span>
+                            л., двигатель:
+                            <span th:text="${car.typeEngine}"> Type engine </span>
+                            ,
+                            <span th:text="${car.bodyCar}"> Body car </span>
+                            , цвет:
+                            <span th:text="${car.color}"> Color </span>
+                            .
+                        </td>
+                        <td name="tdth_cars">
+                            <a th:href="@{/pageCar/{id}(id=${car.id})}" class="btn btn-warning">Edit</a>
+                            <a th:href="@{/deleteCar/{id}(id=${car.id})}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                </table>
 
-    </table>
-            <table>
+            </center>
 
-                <tr th:each="car : ${cars}">
+        </main>
 
-                    <td>
-                        <img width="200" height="162" th:src="@{'showImage/' + ${car.id}}" >
-
-
-                        <a th:href="@{/pageCar/{id}(id=${car.id})}" />
-                            <span th:text="${car.brand}" ></span>
-                        </a>
-                        ,
-                        <span th:text="${car.engineVolume.value}" > Engine volume </span>
-                        л., двигатель:
-                        <span th:text="${car.typeEngine}" > Type engine </span>
-                        ,
-                        <span th:text="${car.bodyCar}" > Body car </span>
-                        , цвет:
-                        <span th:text="${car.color}" > Color </span>
-                        .
-
-                    </td>
-                    <td>
-                        <a th:href="@{/pageCar/{id}(id=${car.id})}" class="btn btn-warning">Edit</a>
-                        <a th:href="@{/deleteCar/{id}(id=${car.id})}" class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>
-
-            </table>
-
-</center>
-
+    <footer th:insert="blocks/footer :: footer"></footer>
 </body>
 </html>
