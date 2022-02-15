@@ -52,7 +52,7 @@
                 <table>
                     <tr th:each="car : ${cars}">
                         <td name="tdth_cars">
-                            <img width="200" height="162" th:src="@{'showImage/' + ${car.id}}">
+                            <img width="300" height="185" th:src="@{'showImage/' + ${car.id}}">
                             <a th:href="@{/pageCar/{id}(id=${car.id})}"/>
                                 <span th:text="${car.brand}"></span>
                             </a>
