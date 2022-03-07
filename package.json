@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "node-java-maven": "^0.1.2"
+  }
+}
