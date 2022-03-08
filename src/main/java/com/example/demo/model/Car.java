@@ -30,7 +30,7 @@ public class Car {
 
     @Lob
     @Basic(fetch = FetchType.LAZY)
-    @Column(length = 100000)
+    @Column(length = 999999999)
     private byte[] photo;
 
 
