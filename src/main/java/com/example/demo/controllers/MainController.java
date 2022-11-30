@@ -1,7 +1,5 @@
 package com.example.demo.controllers;
 
-import com.example.demo.model.Card;
-import com.example.demo.model.Cvc;
 import com.example.demo.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

