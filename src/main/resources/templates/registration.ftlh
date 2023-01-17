@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>BUYSELL</title>
-</head>
-<body>
-<h1>BUYSELL</h1><hr>
+<#import "blocks/template.ftlh" as t>
+<@t.template user>
 <h4>Регистрация</h4>
 <form action="/registration" method="post">
     Имя пользователя: <input type="text" name="name"><br><br>
@@ -17,5 +12,4 @@
 <#if errorMessage??>
     <h2 style="color: red">${errorMessage}</h2>
 </#if>
-</body>
-</html>
+</@t.template>

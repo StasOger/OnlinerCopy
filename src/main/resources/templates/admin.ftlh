@@ -1,4 +1,4 @@
-<import "blocks/template.ftlh" as t>
+<#import "blocks/template.ftlh" as t>
 <@t.template user>
     <h1>Панель администратора</h1><br>
     <table class="table table-hover table-dark">

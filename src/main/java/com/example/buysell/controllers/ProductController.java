@@ -1,6 +1,7 @@
 package com.example.buysell.controllers;
 
 import com.example.buysell.models.Product;
+import com.example.buysell.models.User;
 import com.example.buysell.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -48,5 +49,13 @@ public class ProductController {
     public String deleteProduct(@PathVariable Long id, Principal principal) {
         productService.deleteProducts(productService.getUserByPrincipal(principal), id);
         return "redirect:/my/products";
+    }
+
+    @GetMapping("/my/products")
+    public String userProducts(Principal principal, Model model) {
+        User user = productService.getUserByPrincipal(principal);
+        model.addAttribute("user", user);
+        model.addAttribute("products", user.getProducts());
+        return "my-products";
     }
 }

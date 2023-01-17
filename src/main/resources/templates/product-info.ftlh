@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>BUYSELL</title>
-</head>
-<body>
-<h1>BUYSELL</h1><hr>
+<#import "blocks/template.ftlh" as t>
+<@t.template user>
 <h4>Подробная информация о товаре</h4>
 <#list images as img>
     <img src="/images/${img.id}"/><br><br>
@@ -14,5 +9,4 @@
 <b>Цена: </b>${product.price}<br>
 <b>Город: </b>${product.city}<br>
 <b>Автор: </b><a href="/user/${product.user.id}">${product.user.name}</a><br>
-</body>
-</html>
+</@t.template>
